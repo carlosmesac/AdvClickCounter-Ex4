@@ -92,7 +92,7 @@ public class CounterListPresenter implements CounterListContract.Presenter {
 
   @Override
   public void selectCounterItem(CounterData counter) {
-    CounterToClickState counterToClickState = new CounterToClickState(counter.clicks);
+    CounterToClickState counterToClickState = new CounterToClickState(counter);
     router.passStateToNextScreen(counterToClickState);
     router.navigateToNextScreen();
   }

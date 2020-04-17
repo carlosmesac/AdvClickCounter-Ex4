@@ -8,8 +8,8 @@ import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class CounterToClickState {
 
-  public List<ClickData> counterData;
-  public CounterToClickState(List<ClickData> counterData) {
+  public CounterData counterData;
+  public CounterToClickState(CounterData counterData) {
     this.counterData = counterData;
   }
 

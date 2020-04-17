@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.advclickcounter.counters;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -87,6 +88,7 @@ public class CounterListActivity
           @Override
           public void onClick(View view) {
             CounterData counter = (CounterData) view.getTag();
+
             presenter.selectCounterItem(counter);
           }
         })

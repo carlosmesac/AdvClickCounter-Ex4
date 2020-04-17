@@ -1,8 +1,11 @@
 package es.ulpgc.eite.cleancode.advclickcounter.clicks;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import es.ulpgc.eite.cleancode.advclickcounter.app.ClickToCounterState;
 import es.ulpgc.eite.cleancode.advclickcounter.app.CounterToClickState;
 import es.ulpgc.eite.cleancode.advclickcounter.data.ClickData;
 
@@ -31,9 +34,10 @@ public class ClickListPresenter implements ClickListContract.Presenter {
     // use passed state if is necessary
     CounterToClickState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
-      state.datasource = savedState.counterData;
+      state.counterData = savedState.counterData;
+      state.datasource = savedState.counterData.clicks;
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.counterData);
+      //model.onDataFromPreviousScreen(savedState.counterData);
     }
     view.get().onDataUpdated(state);
   }
@@ -71,6 +75,8 @@ public class ClickListPresenter implements ClickListContract.Presenter {
   @Override
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
+    ClickToCounterState clickToCounterState = new ClickToCounterState(state.counterData);
+    router.passStateToPreviousScreen(clickToCounterState);
   }
 
   @Override
@@ -91,10 +97,11 @@ public class ClickListPresenter implements ClickListContract.Presenter {
   }
 
   @Override
-  public void itemClicked(ClickData data) {
-    ClickData clickData = model.increaseItemValue(data);
-
+  public void globalValueAdd() {
+    state.counterData.value++;
+    Log.d(TAG, String.valueOf(state.value));
   }
+
 
   @Override
   public void injectView(WeakReference<ClickListContract.View> view) {

@@ -92,6 +92,7 @@ public class ClickListActivity
             data.value++;
             TextView value = view.findViewById(R.id.value);
             value.setText(data.value.toString());
+            presenter.globalValueAdd();
           }
         })
     );

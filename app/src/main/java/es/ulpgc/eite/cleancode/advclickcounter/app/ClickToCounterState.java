@@ -3,12 +3,13 @@ package es.ulpgc.eite.cleancode.advclickcounter.app;
 import java.util.List;
 import java.util.Objects;
 
+import es.ulpgc.eite.cleancode.advclickcounter.data.ClickData;
 import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class ClickToCounterState {
 
-  public List<CounterData> counterData;
-  public ClickToCounterState(List<CounterData> counterData) {
+  public CounterData counterData;
+  public ClickToCounterState(CounterData counterData) {
     this.counterData = counterData;
   }
 

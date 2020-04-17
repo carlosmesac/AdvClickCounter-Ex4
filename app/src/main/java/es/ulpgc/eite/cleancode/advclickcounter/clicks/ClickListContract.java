@@ -36,7 +36,7 @@ public interface ClickListContract {
 
     void onClickButtonPressed();
 
-    void itemClicked(ClickData data);
+    void globalValueAdd();
   }
 
   interface Model {
@@ -50,7 +50,6 @@ public interface ClickListContract {
 
       List<ClickData> addNewClickObject(List<ClickData> datasource);
 
-    ClickData increaseItemValue(ClickData value);
   }
 
   interface Router {
