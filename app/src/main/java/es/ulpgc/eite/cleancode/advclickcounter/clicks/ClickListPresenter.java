@@ -31,7 +31,7 @@ public class ClickListPresenter implements ClickListContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.data);
+      model.onDataFromPreviousScreen(savedState.counterData);
     }
   }
 

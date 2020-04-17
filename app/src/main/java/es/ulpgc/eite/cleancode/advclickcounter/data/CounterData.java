@@ -20,6 +20,26 @@ public class CounterData implements BaseData {
     clicks= new ArrayList<>();
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  public List<ClickData> getClicks() {
+    return clicks;
+  }
+
+  public void setClicks(List<ClickData> clicks) {
+    this.clicks = clicks;
+  }
+
   @Override
   public Integer getValue() {
     return value;

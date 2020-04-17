@@ -87,7 +87,7 @@ public class CounterListActivity
           @Override
           public void onClick(View view) {
             CounterData counter = (CounterData) view.getTag();
-
+            presenter.selectCounterItem(counter);
           }
         })
     );

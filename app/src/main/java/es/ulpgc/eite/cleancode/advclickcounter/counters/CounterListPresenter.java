@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.advclickcounter.app.ClickToCounterState;
+import es.ulpgc.eite.cleancode.advclickcounter.app.CounterToClickState;
 import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class CounterListPresenter implements CounterListContract.Presenter {
@@ -56,7 +57,7 @@ public class CounterListPresenter implements CounterListContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.data);
+      //model.onDataFromNextScreen(savedState.data);
     }
 
     // call the model and update the state
@@ -87,6 +88,13 @@ public class CounterListPresenter implements CounterListContract.Presenter {
     List<CounterData> nuevoCounter = model.addNewCounter(state.datasource);
     state.datasource = nuevoCounter;
     view.get().onDataUpdated(state);
+  }
+
+  @Override
+  public void selectCounterItem(CounterData counter) {
+    CounterToClickState counterToClickState = new CounterToClickState(counter.clicks);
+    router.passStateToNextScreen(counterToClickState);
+    router.navigateToNextScreen();
   }
 
   @Override

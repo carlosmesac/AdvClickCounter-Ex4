@@ -35,6 +35,8 @@ public interface CounterListContract {
     void onDestroy();
 
     void onCounterButtonPressed();
+
+    void selectCounterItem(CounterData counter);
   }
 
   interface Model {
