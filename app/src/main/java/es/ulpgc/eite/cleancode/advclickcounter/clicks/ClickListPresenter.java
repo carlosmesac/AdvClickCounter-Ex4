@@ -92,6 +92,7 @@ public class ClickListPresenter implements ClickListContract.Presenter {
 
   @Override
   public void itemClicked(ClickData data) {
+    ClickData clickData = model.increaseItemValue(data);
 
   }
 

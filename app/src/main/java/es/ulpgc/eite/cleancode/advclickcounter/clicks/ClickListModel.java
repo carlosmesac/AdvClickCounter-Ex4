@@ -41,4 +41,10 @@ public class ClickListModel implements ClickListContract.Model {
     datasource.add(new ClickData());
     return datasource;
   }
+
+  @Override
+  public ClickData increaseItemValue(ClickData value) {
+    value.value++;
+    return value;
+  }
 }

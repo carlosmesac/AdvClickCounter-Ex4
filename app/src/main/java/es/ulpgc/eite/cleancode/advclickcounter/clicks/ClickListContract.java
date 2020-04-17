@@ -49,6 +49,8 @@ public interface ClickListContract {
     void onDataFromPreviousScreen(List<ClickData> data);
 
       List<ClickData> addNewClickObject(List<ClickData> datasource);
+
+    ClickData increaseItemValue(ClickData value);
   }
 
   interface Router {
