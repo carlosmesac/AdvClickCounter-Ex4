@@ -32,7 +32,7 @@ public class CounterListActivity
       presenter.onRestart();
     }
   }
-
+//hola
   @Override
   protected void onResume() {
     super.onResume();
