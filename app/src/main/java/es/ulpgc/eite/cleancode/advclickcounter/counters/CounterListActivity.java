@@ -6,6 +6,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import es.ulpgc.eite.cleancode.advclickcounter.R;
 import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
@@ -16,6 +18,8 @@ public class CounterListActivity
 
   private CounterListContract.Presenter presenter;
 
+  private FloatingActionButton addButton;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -24,15 +28,25 @@ public class CounterListActivity
 
     // do the setup
     CounterListScreen.configure(this);
-
+    initLayout();
     if (savedInstanceState == null) {
       presenter.onStart();
 
     } else {
       presenter.onRestart();
     }
+    addButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        presenter.onCounterButtonPressed();
+      }
+    });
+
   }
-//hola
+  private void initLayout(){
+    addButton = findViewById(R.id.counterButton);
+  }
+
   @Override
   protected void onResume() {
     super.onResume();

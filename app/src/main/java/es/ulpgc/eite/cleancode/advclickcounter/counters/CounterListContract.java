@@ -1,9 +1,11 @@
 package es.ulpgc.eite.cleancode.advclickcounter.counters;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.cleancode.advclickcounter.app.ClickToCounterState;
 import es.ulpgc.eite.cleancode.advclickcounter.app.CounterToClickState;
+import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public interface CounterListContract {
 
@@ -43,6 +45,8 @@ public interface CounterListContract {
     void onRestartScreen(String data);
 
     void onDataFromPreviousScreen(String data);
+
+    List<CounterData> addNewCounter(List<CounterData> datasource);
   }
 
   interface Router {
