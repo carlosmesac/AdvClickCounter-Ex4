@@ -10,11 +10,30 @@ public class AppMediator extends Application {
   private CounterListState counterListState;
   private ClickListState clickListState;
 
+  private CounterToClickState counterToClickState;
+  private ClickToCounterState clickToCounterState;
+
+  public CounterToClickState getCounterToClickState() {
+    return counterToClickState;
+  }
+
+  public void setCounterToClickState(CounterToClickState counterToClickState) {
+    this.counterToClickState = counterToClickState;
+  }
+
+  public ClickToCounterState getClickToCounterState() {
+    return clickToCounterState;
+  }
+
+  public void setClickToCounterState(ClickToCounterState clickToCounterState) {
+    this.clickToCounterState = clickToCounterState;
+  }
+
   @Override
   public void onCreate() {
     super.onCreate();
 
-    counterListState =new CounterListState();
+    counterListState = new CounterListState();
     clickListState = new ClickListState();
   }
 

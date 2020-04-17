@@ -21,7 +21,8 @@ public class ClickListRouter implements ClickListContract.Router {
 
   @Override
   public CounterToClickState getStateFromPreviousScreen() {
-    return mediator.getPreviousClickScreenState();
+    CounterToClickState counterToClickState = mediator.getCounterToClickState();
+    return counterToClickState;
   }
 
   /*

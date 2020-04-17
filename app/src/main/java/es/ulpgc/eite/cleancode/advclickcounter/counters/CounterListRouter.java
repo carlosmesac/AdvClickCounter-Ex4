@@ -28,7 +28,7 @@ public class CounterListRouter implements CounterListContract.Router {
 
   @Override
   public void passStateToNextScreen(CounterToClickState state) {
-    mediator.setNextCounterScreenState(state);
+    mediator.setCounterToClickState(state);
   }
 
   /*

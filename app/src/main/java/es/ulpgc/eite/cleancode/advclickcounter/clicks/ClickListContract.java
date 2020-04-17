@@ -35,6 +35,8 @@ public interface ClickListContract {
     void onDestroy();
 
     void onClickButtonPressed();
+
+    void itemClicked(ClickData data);
   }
 
   interface Model {
@@ -45,6 +47,8 @@ public interface ClickListContract {
     void onRestartScreen(String data);
 
     void onDataFromPreviousScreen(List<ClickData> data);
+
+      List<ClickData> addNewClickObject(List<ClickData> datasource);
   }
 
   interface Router {

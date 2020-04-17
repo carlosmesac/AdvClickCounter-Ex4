@@ -35,4 +35,10 @@ public class ClickListModel implements ClickListContract.Model {
     // Log.e(TAG, "onDataFromPreviousScreen()");
 
   }
+
+  @Override
+  public List<ClickData> addNewClickObject(List<ClickData> datasource) {
+    datasource.add(new ClickData());
+    return datasource;
+  }
 }

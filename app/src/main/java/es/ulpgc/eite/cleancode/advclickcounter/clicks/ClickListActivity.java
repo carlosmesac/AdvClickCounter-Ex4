@@ -6,6 +6,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import es.ulpgc.eite.cleancode.advclickcounter.R;
 import es.ulpgc.eite.cleancode.advclickcounter.data.ClickData;
 
@@ -16,6 +18,8 @@ public class ClickListActivity
 
   private ClickListContract.Presenter presenter;
 
+  private FloatingActionButton addButton;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -24,13 +28,23 @@ public class ClickListActivity
 
     // do the setup
     ClickListScreen.configure(this);
-
+    initLayout();
     if (savedInstanceState == null) {
       presenter.onStart();
 
     } else {
       presenter.onRestart();
     }
+    addButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        presenter.onClickButtonPressed();
+      }
+    });
+  }
+
+  private void initLayout(){
+    addButton = findViewById(R.id.clickButton);
   }
 
   @Override
@@ -73,7 +87,7 @@ public class ClickListActivity
           @Override
           public void onClick(View view) {
             ClickData data = (ClickData) view.getTag();
-
+            presenter.itemClicked(data);
           }
         })
     );
